@@ -15,5 +15,5 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/Users',(req,res)=>{
-    res.send([1,2,3,4,5,6])
+    res.send([1,2,3,4,5,6,7])
 })
