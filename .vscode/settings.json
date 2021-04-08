@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/9be9b41e-2d0f-4aa3-8c21-d341a45f1b8d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/AlphaChatApi",
+    "appService.deploySubpath": "."
+}
