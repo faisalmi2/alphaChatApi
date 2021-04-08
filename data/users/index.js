@@ -9,7 +9,7 @@ const Auth = async ()=>{
     console.log('hi');
     try {
         let pool = new Pool(config.sql);
-        console.log(pool);
+    
         const sqlQueries = await utils.loadSQLQueries('users');
          let para=['522']
         
@@ -18,7 +18,7 @@ const Auth = async ()=>{
         
         const user=result.rows[0];
         if(!user) return {success:false, message:"Invalid email or password"};
-        console.log('result',user.Password);
+     
         if(!await bcrypt.compare('123',user.Password)) return {success:false, message:"Invalid email or password"};
        
         return {success:true,userInfo:user};
