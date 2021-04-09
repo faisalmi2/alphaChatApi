@@ -6,15 +6,14 @@ const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
 
 const Auth = async ()=>{
-    console.log('hi');
+    
     try {
         let pool = new Pool(config.sql);
     
         const sqlQueries = await utils.loadSQLQueries('users');
          let para=['522']
         
-        const result = await pool.query(sqlQueries.auth,para);
-        
+        const result = await pool.query(sqlQueries.auth,para);       
         
         const user=result.rows[0];
         if(!user) return {success:false, message:"Invalid email or password"};

@@ -12,10 +12,9 @@ const loadSQLQueries=async(folderName)=>{
     for (const sqlfile of sqlFiles) {
         const query=await fs.readFileSync(join(filePath,sqlfile),{encoding:"utf-8"});
 
-        queries[sqlfile.replace('.sql',"")]=query
-        return queries;
-       
+        queries[sqlfile.replace('.sql',"")]=query       
     }
+    return queries;
 }
 
 module.exports={
