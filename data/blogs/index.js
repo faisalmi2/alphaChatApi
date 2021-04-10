@@ -12,18 +12,19 @@ const GetBlogs = async ()=>{
         let pool = new Pool(config.sql);
         
         const sqlQueries = await utils.loadSQLQueries('blogs');
-        
+      
         const result = await pool.query(sqlQueries.getBlogs);       
-      
+        
         const rows=result.rows;
-    
+        
         if(!rows) return {success:false, message:"Error while adding blog"};
-      
-        if(rows.length <= 0) return {success:false, message:"Error while adding blog"};
        
+        //if(rows.length <= 0) return {success:false, message:"Error while adding blog"};
+      //  console.log('result      ',rows.length);
         return {success:true,blogs:rows};
 
     } catch (err) {
+        console.log(err.message);
         return 'user index: '+ err.message;
     }
 }

@@ -20,7 +20,8 @@ module.exports={
         user:SQL_USER,
         password:SQL_PASSWORD,
         host:SQL_SERVER,
-        port:SQL_PORT
+        port:SQL_PORT,
+        sslmode:'require'
        // options:{
          //   encrypt:sqlEncrypt,
            // enableArithAbort:true
