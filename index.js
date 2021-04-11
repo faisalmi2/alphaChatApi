@@ -7,6 +7,7 @@ const cors=require('cors');
 const bodyParser=require('body-parser'); //latest express has solution to it 
 
 const app=express();
+
 app.use(cors());
 
 app.use(bodyParser.urlencoded({
