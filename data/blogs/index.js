@@ -3,7 +3,7 @@
 const utils=require('../utils');
 const config =  require('../../config');
 const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
+
 
 const GetBlogs = async ()=>{
    
@@ -15,7 +15,7 @@ const GetBlogs = async ()=>{
       
         const result = await pool.query(sqlQueries.getBlogs);              
         const rows=result.rows;        
-        if(!rows) return {success:false, message:"Error while adding blog"};
+        if(!rows) return {success:false, message:"Error while fetching blogs"};
        
         return {success:true,blogs:rows};
 
