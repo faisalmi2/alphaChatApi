@@ -14,9 +14,9 @@ const GetServices = async(req,res,next)=>{
 
 const AddService = async(req,res,next)=>{
     try {        
-        const { ServiceName } = req.body;
+        const { ServiceName,Slug } = req.body;
 
-        const service = await servicesData.AddService({ ServiceName });
+        const service = await servicesData.AddService({ ServiceName,Slug });
         if(!service.success) return res.status(400).send(service.message);
         res.send(service);
     } catch (error) {

@@ -10,7 +10,7 @@ const AddService = async (service)  =>{
         let pool = new Pool(config.sql);        
         const sqlQueries = await utils.loadSQLQueries('services');
        
-        const result = await pool.query(sqlQueries.addService,[service.ServiceName,1]);          
+        const result = await pool.query(sqlQueries.addService,[service.ServiceName,1,service.Slug]);          
         const row=result.rows[0];
       
         if(!row) return {success:false, message:"Error while adding service"};

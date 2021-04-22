@@ -1,2 +1,2 @@
-SELECT "ServiceId", "ServiceName", "IsActive"
+SELECT "ServiceId", "ServiceName", "IsActive","Slug"
 	FROM "Services";

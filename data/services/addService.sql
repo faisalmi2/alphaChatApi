@@ -1,3 +1,3 @@
 
-INSERT INTO "Services"( "ServiceName", "IsActive")
-	VALUES ($1, $2)  RETURNING "ServiceId";
+INSERT INTO "Services"( "ServiceName", "IsActive","Slug")
+	VALUES ($1, $2, $3)  RETURNING "ServiceId";
