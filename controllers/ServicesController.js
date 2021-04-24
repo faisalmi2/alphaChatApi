@@ -24,6 +24,18 @@ const AddService = async(req,res,next)=>{
     }
 }
 
+const GetServicePrerequisites = async(req,res,next)=>{
+    try {        
+        const id=req.params.id;
+        //console.log(req.params);
+        const servicesPrerequisites = await servicesData.GetServicePrerequisites(id);
+        if(!servicesPrerequisites.success) return res.status(400).send(servicesPrerequisites.message);
+        res.send(servicesPrerequisites);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
 module.exports ={
-    GetServices,AddService
+    GetServices,AddService,GetServicePrerequisites
 }

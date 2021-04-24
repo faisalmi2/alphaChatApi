@@ -15,9 +15,9 @@ const GetBlogs = async(req,res,next)=>{
 const AddBlog = async(req,res,next)=>{
     try {
 
-        const { BlogTitle,BlogDescription } = req.body;
+        const { BlogTitle,BlogDescription,Tags } = req.body;
         
-        const blog = await blogData.AddBlog({ BlogTitle,BlogDescription });
+        const blog = await blogData.AddBlog({ BlogTitle,BlogDescription,Tags });
         if(!blog.success) return res.status(400).send(blog.message);
         res.send(blog);
     } catch (error) {

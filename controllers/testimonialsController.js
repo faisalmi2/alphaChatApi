@@ -14,9 +14,9 @@ const GetTestimonials = async(req,res,next)=>{
 
 const AddTestimonial = async(req,res,next)=>{
     try {        
-        const { TestimonialTitle, TestimonialDescription, ClientName, Rating, AddedBy, Tags } = req.body;
+        const { TestimonialTitle, TestimonialDescription, ClientName, Rating, AddedBy, ClientPosition } = req.body;
 
-        const testimonial = await testimonialsData.AddTestimonial({ TestimonialTitle, TestimonialDescription, ClientName, Rating, AddedBy,Tags  });
+        const testimonial = await testimonialsData.AddTestimonial({ TestimonialTitle, TestimonialDescription, ClientName, Rating, AddedBy,ClientPosition  });
         if(!testimonial.success) return res.status(400).send(testimonial.message);
         res.send(testimonial);
     } catch (error) {

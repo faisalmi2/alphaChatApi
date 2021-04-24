@@ -10,7 +10,7 @@ const AddTestimonial = async (testimonial)  =>{
         let pool = new Pool(config.sql);        
         const sqlQueries = await utils.loadSQLQueries('testimonials');
 
-        let para=[testimonial.TestimonialTitle,testimonial.TestimonialDescription, testimonial.ClientName,testimonial.Rating,testimonial.AddedBy, new Date(),testimonial.Tags];
+        let para=[testimonial.TestimonialTitle,testimonial.TestimonialDescription, testimonial.ClientName,testimonial.Rating,testimonial.AddedBy, new Date(),testimonial.ClientPosition];
 
         const result = await pool.query(sqlQueries.addTestimonial,para);          
         const row=result.rows[0];

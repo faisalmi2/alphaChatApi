@@ -32,7 +32,7 @@ const AddBlog = async (blog)=>{
         const sqlQueries = await utils.loadSQLQueries('blogs');
         
         
-         let para=[blog.BlogTitle,blog.BlogDescription, new Date(),'Faisal Ali'];
+         let para=[blog.BlogTitle,blog.BlogDescription, new Date(),'Faisal Ali',blog.Tags];
         
         const result = await pool.query(sqlQueries.addBlog,para);       
        

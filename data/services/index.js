@@ -15,7 +15,7 @@ const AddService = async (service)  =>{
       
         if(!row) return {success:false, message:"Error while adding service"};
       
-        if(row.BlogId <= 0) return {success:false, message:"Error while adding service"};
+        if(row.ServiceId <= 0) return {success:false, message:"Error while adding service"};
         
         return {success:true,service:row.ServiceId};
    } catch (err) {
@@ -28,12 +28,14 @@ const AddService = async (service)  =>{
 const GetServices = async ()  =>{
    
     try {
-         let pool = new Pool(config.sql);        
+         let pool = new Pool(config.sql);   
+        
          const sqlQueries = await utils.loadSQLQueries('services');
         
          const result = await pool.query(sqlQueries.getServices);          
-                
-         const rows=result.rows;        
+         
+         const rows=result.rows;     
+         
          if(!rows) return {success:false, message:"Error while fetching services"};
         
          return {success:true,services:rows};
@@ -43,4 +45,26 @@ const GetServices = async ()  =>{
     } 
  }
 
-module.exports ={GetServices,AddService}
+
+ const GetServicePrerequisites = async (id)  =>{
+   
+     try {
+          let pool = new Pool(config.sql);   
+         
+          const sqlQueries = await utils.loadSQLQueries('services');
+         
+          const result = await pool.query(sqlQueries.getServicePrerequisites,[id]);          
+          
+          const rows=result.rows[0];     
+          
+          if(!rows) return {success:false, message:"Error while fetching services"};
+         
+          return {success:true,service:rows};
+     } catch (err) {
+          console.log(err.message);
+          return 'Services data index: '+ err.message;
+     } 
+  }
+
+
+module.exports ={GetServices,AddService,GetServicePrerequisites}
